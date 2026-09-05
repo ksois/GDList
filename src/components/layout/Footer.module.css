@@ -164,6 +164,41 @@
   overflow-wrap: anywhere;
 }
 
+.legal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.legalLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #5b7fae;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.legalLink:hover {
+  color: #69a6ff;
+}
+
+.legalDot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #33415a;
+}
+
 .copyright {
   max-width: 960px;
   margin: 0 auto;

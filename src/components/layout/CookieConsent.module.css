@@ -1,0 +1,134 @@
+.banner {
+  position: fixed;
+  z-index: 90;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(720px, calc(100vw - 32px));
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(100, 155, 235, 0.24);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(55, 126, 237, 0.14), transparent 40%),
+    rgba(8, 15, 28, 0.97);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  backdrop-filter: blur(20px);
+  animation: bannerIn 250ms ease;
+}
+
+@keyframes bannerIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid rgba(100, 155, 235, 0.24);
+  border-radius: 50%;
+  color: var(--accent-blue);
+  background: rgba(55, 126, 237, 0.1);
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.message {
+  margin: 0 0 6px;
+  color: #b8c6da;
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  color: #4d92ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.more:hover {
+  color: #7db2ff;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.accept,
+.reject {
+  min-width: 108px;
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.accept {
+  border: 1px solid var(--accent-blue);
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+.accept:hover {
+  background: var(--accent-blue-dim);
+  box-shadow: 0 0 14px rgba(68, 136, 255, 0.35);
+}
+
+.reject {
+  border: 1px solid var(--border-glass);
+  background: none;
+  color: var(--text-secondary);
+}
+
+.reject:hover {
+  border-color: var(--border-glass-hover);
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+@media (max-width: 560px) {
+  .banner {
+    flex-direction: column;
+    gap: 12px;
+    bottom: 12px;
+    padding: 14px;
+  }
+
+  .actions {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .accept,
+  .reject {
+    flex: 1;
+    min-width: 0;
+  }
+}

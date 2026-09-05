@@ -843,6 +843,7 @@
 }
 
 .mainLevelCardMotion {
+  position: relative;
   min-width: 0;
 }
 
@@ -974,6 +975,21 @@
 .mainLevelCard:hover .mainCardArrow {
   color: #7eb2ff;
   transform: translate(3px, -50%);
+}
+
+.mainLevelCard.hasControls {
+  padding-right: 68px;
+}
+
+.cardControls {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transform: translateY(-50%);
 }
 
 .mainThemedTable {
@@ -1108,5 +1124,15 @@
 
   .mainLevelCard:hover .mainCardArrow {
     transform: translateX(3px);
+  }
+
+  .mainLevelCard.hasControls {
+    padding-right: 12px;
+  }
+
+  .cardControls {
+    top: 12px;
+    right: 12px;
+    transform: none;
   }
 }

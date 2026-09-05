@@ -19,6 +19,12 @@ const en = {
     description: 'Geometry Dash demon list for the tnaillzxgd Discord community.', lists: 'Lists', rankings: 'Rankings',
     community: 'Community', rights: 'All rights reserved. Basement List is not affiliated with RobTop Games.',
     createdBy: 'Created by', and: 'and',
+    privacy: 'Privacy Policy', legal: 'Legal Notice', cookiePreferences: 'Cookie Preferences',
+  },
+  cookie: {
+    title: 'Cookie preferences',
+    message: 'Basement List uses strictly necessary cookies to keep you signed in and local storage for preferences like language and country. No tracking or advertising cookies are used.',
+    accept: 'Accept', reject: 'Reject',
   },
   home: {
     eyebrow: 'THE TNAILLZXGD COMMUNITY LIST', titleLine1: 'The Basement', titleLine2: 'Demon List',
@@ -97,6 +103,12 @@ const ru = {
     description: 'Список демонов Geometry Dash для Discord-сообщества tnaillzxgd.', lists: 'Списки', rankings: 'Рейтинги',
     community: 'Сообщество', rights: 'Все права защищены. Basement List не связан с RobTop Games.',
     createdBy: 'Создано', and: 'и',
+    privacy: 'Политика конфиденциальности', legal: 'Правовая информация', cookiePreferences: 'Настройки файлов cookie',
+  },
+  cookie: {
+    title: 'Настройки файлов cookie',
+    message: 'Basement List использует только строго необходимые файлы cookie для входа в аккаунт и локальное хранилище для предпочтений — язык и страна. Трекинг и рекламные файлы cookie не используются.',
+    accept: 'Принять', reject: 'Отклонить',
   },
   home: {
     eyebrow: 'СПИСОК СООБЩЕСТВА TNAILLZXGD', titleLine1: 'The Basement', titleLine2: 'Demon List',

@@ -9,6 +9,7 @@ import Footer from './components/layout/Footer'
 import Navbar from './components/layout/Navbar'
 import RouteLoader from './components/layout/RouteLoader'
 import ScrollToTop from './components/layout/ScrollToTop'
+import CookieConsent from './components/layout/CookieConsent'
 import MaintenanceBanner from './components/guards/MaintenanceBanner'
 import CountryOnboarding from './components/guards/CountryOnboarding'
 import RequireAuth from './components/guards/RequireAuth'
@@ -31,6 +32,8 @@ const Login = lazy(() => import('./pages/Login'))
 const Register = lazy(() => import('./pages/Register'))
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'))
 const VerifyEmail = lazy(() => import('./pages/VerifyEmail'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const LegalNotice = lazy(() => import('./pages/LegalNotice'))
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'))
 const ManageLevels = lazy(() => import('./pages/admin/ManageLevels'))
 const ReviewSubmissions = lazy(() => import('./pages/admin/ReviewSubmissions'))
@@ -102,6 +105,8 @@ export default function App() {
                   <Route path="/register" element={<Register />} />
                   <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route path="/verify-email" element={<VerifyEmail />} />
+                  <Route path="/privacy" element={<PrivacyPolicy />} />
+                  <Route path="/legal" element={<LegalNotice />} />
                   <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
                   <Route path="/admin/levels" element={<AdminRoute><ManageLevels /></AdminRoute>} />
                   <Route path="/admin/submissions" element={<AdminRoute><ReviewSubmissions /></AdminRoute>} />
@@ -116,6 +121,7 @@ export default function App() {
               </Suspense>
             </AppErrorBoundary>
             <Footer />
+            <CookieConsent />
             </SiteConfigProvider>
           </AuthProvider>
         </BrowserRouter>

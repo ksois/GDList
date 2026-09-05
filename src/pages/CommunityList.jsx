@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Clock3, Edit3, ListChecks, Trash2, Youtube, X, Trophy } from 'lucide-react'
+import { Clock3, Edit3, ListChecks, Trash2, Youtube, X, Trophy, ArrowRight } from 'lucide-react'
 import PageShell from '../components/layout/PageShell'
 import ThemedPageHero from '../components/layout/ThemedPageHero'
 import Card from '../components/ui/Card'
@@ -13,6 +13,7 @@ import { useLanguage } from '../hooks/useLanguage'
 import { loadCommunityLevels, loadTags, invalidateCache } from '../services/readCache'
 import { deleteCommunityLevel } from '../services/communityList'
 import { hasAccess } from '../utils/constants'
+import { formatNumber } from '../utils/format'
 import { getVideoThumbnail } from '../utils/video'
 import styles from './List.module.css'
 import theme from '../components/layout/ThemedPage.module.css'
@@ -207,128 +208,110 @@ export default function CommunityList() {
             : <p>No unverified levels. New level submissions will appear here once approved by an admin.</p>}
         </Card>
       ) : (
-        <div className={`${styles.table} ${isAdmin ? styles.withActions : ''} ${tab === 'unverified' ? styles.unverifiedTable : ''}`}>
-          <div className={styles.tableHeader}>
-            <span className={styles.colPos}>#</span>
-            <span className={styles.colName}>Level</span>
-            <span className={styles.colDiff}>ID</span>
-            {tab === 'active' && <span className={styles.colPoints}>Points</span>}
-            <span className={styles.colVerifier}>Creators</span>
-            <span className={styles.colCreator}>Submitter</span>
-            {isAdmin && <span className={styles.colActions}>Actions</span>}
-          </div>
-
+        <div className={styles.mainLevelCards}>
           {visible.map((level, i) => {
             const completed = !!user && (level.victors || []).some(v => v.userId === user.uid)
-            const videoURL = tab === 'active'
-              ? (level.victors || [])[0]?.videoURL
-              : level.videoURL
+            const isUnverified = tab === 'unverified'
+            const videoURL = isUnverified
+              ? level.videoURL
+              : (level.victors || [])[0]?.videoURL
             const thumbnail = getVideoThumbnail(videoURL)
             const levelTags = levelTagsMap(level)
-            return (
-            <motion.div
-              key={level.id}
-              className={`${styles.tableRow} ${completed ? styles.completed : ''}`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: Math.min(i, 12) * 0.02 }}
-            >
-              <span className={styles.colPos}>
-                <span className={styles.position}>
-                  {tab === 'unverified' && (level.victoryCount || 0) === 0 ? '—' : `#${level.position}`}
-                </span>
-              </span>
-              <span className={styles.colName}>
-                <div className={styles.levelInfo}>
-                  {thumbnail && (
-                    <img src={thumbnail} alt="" className={styles.thumbnail} loading="lazy" />
-                  )}
-                  <div className={styles.levelInfoText}>
-                    {tab === 'active' ? (
-                      <Link to={`/levels/${level.id}`} className={styles.levelLink}>
-                        <span className={styles.levelNameWrap}>
-                          <span className={styles.levelName}>{level.name}</span>
-                          {completed && <Trophy size={14} className={styles.completedTrophy} />}
-                        </span>
-                      </Link>
-                    ) : isAdmin ? (
-                      <Link to={`/levels/${level.id}`} className={styles.levelLink}>
-                        <span className={styles.levelNameWrap}>
-                          <span className={styles.levelName}>{level.name}</span>
-                          {completed && <Trophy size={14} className={styles.completedTrophy} />}
-                        </span>
-                      </Link>
-                    ) : (
-                      <span className={styles.levelNameWrap}>
-                        <span className={styles.levelName}>{level.name}</span>
-                        {completed && <Trophy size={14} className={styles.completedTrophy} />}
+            const hasControls = !!videoURL || isAdmin
+            const cardClassName = `${styles.mainLevelCard} ${completed ? styles.completed : ''} ${hasControls ? styles.hasControls : ''}`
+            const cardBody = (
+              <>
+                {thumbnail && (
+                  <img src={thumbnail} alt="" className={styles.mainLevelThumbnail} loading="lazy" />
+                )}
+                <div className={styles.mainLevelCardBody}>
+                  <div className={styles.mainLevelCardHeading}>
+                    <span className={styles.mainCardRank}>
+                      {isUnverified && (level.victoryCount || 0) === 0 ? '—' : `#${level.position}`}
+                    </span>
+                    <span className={styles.mainCardName}>{level.name}</span>
+                    {completed && <Trophy size={15} className={styles.completedTrophy} aria-label="Completed" />}
+                  </div>
+                  <div className={styles.mainLevelMeta}>
+                    <span>{t('home.by')} <strong>{level.creator}</strong></span>
+                    <span className={styles.mainMetaDivider} aria-hidden="true" />
+                    <span>ID <strong>{level.gameId || '—'}</strong></span>
+                  </div>
+                  <div className={styles.mainLevelFacts}>
+                    {tab === 'active' && (
+                      <span className={styles.mainCardPoints}>
+                        {formatNumber(level.points)} {t('list.points').toLowerCase()}
                       </span>
                     )}
-                    <span className={styles.creator}>by {level.creator}</span>
-                    {levelTags.length > 0 && (
-                      <span className={styles.levelTags}>
-                        {levelTags.map(tag => (
-                          <span
-                            key={tag.id}
-                            className={styles.miniTag}
-                            style={{ background: tag.color }}
-                          >
-                            {tag.name}
-                          </span>
-                        ))}
+                    <span className={styles.mainCardVictories}>
+                      <Trophy size={14} aria-hidden="true" />
+                      {formatNumber(level.victoryCount || 0)} {t('list.victories').toLowerCase()}
+                    </span>
+                    {levelTags.map(tag => (
+                      <span key={tag.id} className={styles.miniTag} style={{ background: tag.color }}>
+                        {tag.name}
                       </span>
+                    ))}
+                  </div>
+                </div>
+                {!hasControls && <ArrowRight size={18} className={styles.mainCardArrow} aria-hidden="true" />}
+              </>
+            )
+            return (
+              <motion.div
+                key={level.id}
+                className={styles.mainLevelCardMotion}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: Math.min(i, 12) * 0.02 }}
+              >
+                {tab === 'active' || isAdmin ? (
+                  <Link to={`/levels/${level.id}`} className={cardClassName}>
+                    {cardBody}
+                  </Link>
+                ) : (
+                  <div className={cardClassName}>
+                    {cardBody}
+                  </div>
+                )}
+                {hasControls && (
+                  <div className={styles.cardControls}>
+                    {videoURL && (
+                      <a
+                        href={videoURL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.videoBtn}
+                        title={isUnverified ? 'Showcase video' : 'Verifier video'}
+                        aria-label={isUnverified ? 'Showcase video' : 'Verifier video'}
+                      >
+                        <Youtube size={18} />
+                      </a>
+                    )}
+                    {isAdmin && (
+                      <>
+                        <Link
+                          to={`/levels/${level.id}`}
+                          className={styles.editBtn}
+                          title="Edit level"
+                          aria-label="Edit level"
+                        >
+                          <Edit3 size={16} />
+                        </Link>
+                        <button
+                          type="button"
+                          className={styles.deleteBtn}
+                          onClick={() => handleDelete(level)}
+                          title="Delete level"
+                          aria-label="Delete level"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </>
                     )}
                   </div>
-                  {videoURL ? (
-                    <a
-                      href={videoURL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.videoBtn}
-                      title={tab === 'active' ? 'Verifier video' : 'Showcase video'}
-                      aria-label={tab === 'active' ? 'Verifier video' : 'Showcase video'}
-                    >
-                      <Youtube size={18} />
-                    </a>
-                  ) : null}
-                </div>
-              </span>
-              <span className={styles.colDiff}>
-                <span className={styles.gameId}>{level.gameId || '—'}</span>
-              </span>
-              {tab === 'active' && (
-                <span className={styles.colPoints}>
-                  <span className={styles.points}>{level.points}</span>
-                </span>
-              )}
-              <span className={styles.colVerifier}>
-                <span className={styles.verifier}>{level.creator}</span>
-              </span>
-              <span className={styles.colCreator}>
-                <span className={styles.creator}>—</span>
-              </span>
-              {isAdmin && (
-                <span className={styles.colActions}>
-                  <Link
-                    to={`/levels/${level.id}`}
-                    className={styles.editBtn}
-                    title="Edit level"
-                    aria-label="Edit level"
-                  >
-                    <Edit3 size={16} />
-                  </Link>
-                  <button
-                    type="button"
-                    className={styles.deleteBtn}
-                    onClick={() => handleDelete(level)}
-                    title="Delete level"
-                    aria-label="Delete level"
-                  >
-                    <Trash2 size={16} />
-                  </button>
-                </span>
-              )}
-            </motion.div>
+                )}
+              </motion.div>
             )
           })}
         </div>

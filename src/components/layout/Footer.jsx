@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Youtube, Music, Users, ArrowUpRight } from 'lucide-react'
 import { useLanguage } from '../../hooks/useLanguage'
+import { OPEN_COOKIE_CONSENT_EVENT } from './CookieConsent'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -66,6 +67,19 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles.bottom}>
+        <div className={styles.legal}>
+          <Link to="/privacy" className={styles.legalLink}>{t('footer.privacy')}</Link>
+          <span className={styles.legalDot} aria-hidden="true" />
+          <button
+            type="button"
+            className={styles.legalLink}
+            onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_CONSENT_EVENT))}
+          >
+            {t('footer.cookiePreferences')}
+          </button>
+          <span className={styles.legalDot} aria-hidden="true" />
+          <Link to="/legal" className={styles.legalLink}>{t('footer.legal')}</Link>
+        </div>
         <p className={styles.copyright}>
           &copy; {new Date().getFullYear()} ntyu2 and Ksois. {t('footer.rights')}
         </p>
