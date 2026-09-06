@@ -10,6 +10,7 @@ import Input from '../components/ui/Input'
 import Select from '../components/ui/Select'
 import Button from '../components/ui/Button'
 import Spinner from '../components/ui/Spinner'
+import LevelProgress from '../components/LevelProgress'
 import { useAuth } from '../hooks/useAuth'
 import { getDocument, updateDocument } from '../services/firestore'
 import { loadTags } from '../services/readCache'
@@ -308,6 +309,8 @@ export default function LevelDetail() {
           <span className={styles.heroPlay}><Youtube size={24} /></span>
         </a>
       )}
+
+      <LevelProgress key={`${user?.uid || 'guest'}:${levelId}`} userId={user?.uid} levelId={levelId} />
 
       <div className={theme.surface}>
         <div className={styles.surfaceHeading}>

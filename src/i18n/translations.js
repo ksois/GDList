@@ -4,6 +4,17 @@ export const LANGUAGES = [
 ]
 
 const en = {
+  progress: {
+    title: 'Level progress', personal: 'YOUR RUNS', best: 'Best from 0%',
+    local: 'Saved only in this browser, separately for each account (or guest). Not synced between devices; clearing browser data removes your runs. No ranking points or approved records are changed.',
+    from: 'Start (%)', to: 'End (%)', add: 'Save run',
+    hint: 'Use 0–75 for a 75% best, or 42–100 for a practice run. Practice runs do not count as full completions.',
+    invalid: 'Enter whole percentages with 0 ≤ start < end ≤ 100.',
+    history: 'Run history', empty: 'No runs yet. Save your first attempt above.', normal: 'From the start', practice: 'Practice run',
+    saved: 'Run saved on this device.', removed: 'Run removed.', remove: 'Remove run',
+    confirm: 'Remove the {{run}} run from this device? This cannot be undone.', cancel: 'Cancel', more: 'Show more runs',
+    error: 'Could not read or change saved runs. Check browser storage access and retry. Existing entries have not been cleared.', retry: 'Retry',
+  },
   language: { label: 'Language', select: 'Choose language' },
   nav: {
     primary: 'Primary navigation', home: 'Home', mainList: 'Main List', communityList: 'Community List',
@@ -88,6 +99,17 @@ const en = {
 }
 
 const ru = {
+  progress: {
+    title: 'Прогресс уровня', personal: 'ВАШИ ПОПЫТКИ', best: 'Лучший результат с 0%',
+    local: 'Сохраняется только в этом браузере, отдельно для каждого аккаунта (или гостя). Без синхронизации между устройствами; очистка данных браузера удалит попытки. Очки рейтинга и подтверждённые рекорды не меняются.',
+    from: 'Начало (%)', to: 'Конец (%)', add: 'Сохранить попытку',
+    hint: 'Укажите 0–75 для результата 75% или 42–100 для тренировочного отрезка. Тренировочные отрезки не считаются полным прохождением.',
+    invalid: 'Введите целые проценты: 0 ≤ начало < конец ≤ 100.',
+    history: 'История попыток', empty: 'Попыток пока нет. Сохраните первую выше.', normal: 'С начала', practice: 'Тренировочный отрезок',
+    saved: 'Попытка сохранена на этом устройстве.', removed: 'Попытка удалена.', remove: 'Удалить попытку',
+    confirm: 'Удалить попытку {{run}} с этого устройства? Это действие нельзя отменить.', cancel: 'Отмена', more: 'Показать ещё',
+    error: 'Не удалось прочитать или изменить попытки. Проверьте доступ к хранилищу браузера и повторите. Существующие записи не очищены.', retry: 'Повторить',
+  },
   language: { label: 'Язык', select: 'Выбрать язык' },
   nav: {
     primary: 'Основная навигация', home: 'Главная', mainList: 'Основной список', communityList: 'Список сообщества',
