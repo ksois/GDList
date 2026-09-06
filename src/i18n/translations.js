@@ -18,7 +18,7 @@ const en = {
   footer: {
     description: 'Geometry Dash demon list for the tnaillzxgd Discord community.', lists: 'Lists', rankings: 'Rankings',
     community: 'Community', rights: 'All rights reserved. Basement List is not affiliated with RobTop Games.',
-    createdBy: 'Created by', and: 'and',
+    createdBy: 'Created by', contributionsBy: 'Contributions by',
     privacy: 'Privacy Policy', legal: 'Legal Notice', cookiePreferences: 'Cookie Preferences',
   },
   cookie: {
@@ -102,7 +102,7 @@ const ru = {
   footer: {
     description: 'Список демонов Geometry Dash для Discord-сообщества tnaillzxgd.', lists: 'Списки', rankings: 'Рейтинги',
     community: 'Сообщество', rights: 'Все права защищены. Basement List не связан с RobTop Games.',
-    createdBy: 'Создано', and: 'и',
+    createdBy: 'Создано', contributionsBy: 'При участии',
     privacy: 'Политика конфиденциальности', legal: 'Правовая информация', cookiePreferences: 'Настройки файлов cookie',
   },
   cookie: {

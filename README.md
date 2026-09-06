@@ -2,7 +2,7 @@
 
 Basement List is a community-run Geometry Dash demon list with separate main and community rankings, verified record submissions, player profiles, leaderboards, and admin review tools.
 
-The interface was designed for this project and is maintained with contributions from **ntyu2** and **Ksois**.
+The interface was designed for this project and is maintained by **Ksois** with contributions from **ntyu2**.
 
 ## Local setup
 
@@ -46,6 +46,6 @@ Role changes, real account suspension, and guaranteed account deletion should ul
 
 ## Credits
 
-Copyright &copy; 2026 [ntyu2](https://github.com/ntyu2) and [Ksois](https://github.com/KsoisDev). All rights reserved. See [NOTICE.md](NOTICE.md) for attribution details.
+Copyright &copy; 2026 [Ksois](https://github.com/KsoisDev) and [ntyu2](https://github.com/ntyu2). All rights reserved. See [NOTICE.md](NOTICE.md) for attribution details.
 
-Basement List is not affiliated with RobTop Games. Created for the tnaillzxgd Discord community by ntyu2 and Ksois.
+Basement List is not affiliated with RobTop Games. Created for the tnaillzxgd Discord community by Ksois and ntyu2.

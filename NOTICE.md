@@ -1,8 +1,8 @@
 # Copyright and attribution
 
-Copyright © 2026 ntyu2 and Ksois. All rights reserved.
+Copyright © 2026 Ksois and ntyu2. All rights reserved.
 
-Basement List and the project-specific interface are credited to [ntyu2](https://github.com/ntyu2) and [Ksois](https://github.com/KsoisDev).
+Basement List and the project-specific interface are maintained by [Ksois](https://github.com/KsoisDev) with contributions from [ntyu2](https://github.com/ntyu2).
 
 This notice applies to their respective contributions. Pre-existing contributions, open-source dependencies, third-party services, names, trademarks, and assets remain the property of their respective rights holders and remain subject to their own terms. Geometry Dash is a trademark of RobTop Games; Basement List is not affiliated with or endorsed by RobTop Games.
 

@@ -2,7 +2,8 @@
   "name": "weblist",
   "private": true,
   "version": "1.0.0",
-  "author": "ntyu2 and Ksois",
+  "author": "Ksois",
+  "contributors": ["ntyu2"],
   "type": "module",
   "homepage": "https://blist.ksois.com",
   "scripts": {

@@ -81,16 +81,17 @@ export default function Footer() {
           <Link to="/legal" className={styles.legalLink}>{t('footer.legal')}</Link>
         </div>
         <p className={styles.copyright}>
-          &copy; {new Date().getFullYear()} ntyu2 and Ksois. {t('footer.rights')}
+          &copy; {new Date().getFullYear()} Ksois and ntyu2. {t('footer.rights')}
         </p>
         <p className={styles.credit}>
           {t('footer.createdBy')}{' '}
-          <a href="https://github.com/ntyu2" target="_blank" rel="noopener noreferrer">
-            ntyu2
-          </a>
-          {` ${t('footer.and')} `}
-          <a href="https://github.com/KsoisDev" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/ksois" target="_blank" rel="noopener noreferrer">
             Ksois
+          </a>
+          {' · '}
+          {t('footer.contributionsBy')}{' '}
+          <a href="https://github.com/defnotsquishy" target="_blank" rel="noopener noreferrer">
+            ntyu2
           </a>
         </p>
       </div>

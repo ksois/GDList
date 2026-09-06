@@ -9,7 +9,7 @@ export const legalDocument = {
       {
         heading: 'Site identification',
         body: [
-          'Basement List is a non-commercial community project operated by ntyu2 and Ksois for the tnaillzxgd Discord community, available at blist.ksois.com. Contact: our Discord server.',
+          'Basement List is a non-commercial community project operated by Ksois with contributions from ntyu2 for the tnaillzxgd Discord community, available at blist.ksois.com. Contact: our Discord server.',
         ],
         link: { href: 'https://discord.gg/75FaX3gmM2', label: 'discord.gg/75FaX3gmM2' },
       },
@@ -76,7 +76,7 @@ export const legalDocument = {
       {
         heading: 'Идентификация сайта',
         body: [
-          'Basement List — некоммерческий проект сообщества, который поддерживают ntyu2 и Ksois от имени Discord-сообщества tnaillzxgd; доступен по адресу blist.ksois.com. Контакты: наш Discord-сервер.',
+          'Basement List — некоммерческий проект сообщества, который поддерживает Ksois при участии ntyu2 от имени Discord-сообщества tnaillzxgd; доступен по адресу blist.ksois.com. Контакты: наш Discord-сервер.',
         ],
         link: { href: 'https://discord.gg/75FaX3gmM2', label: 'discord.gg/75FaX3gmM2' },
       },

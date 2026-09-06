@@ -9,7 +9,7 @@ export const privacyDocument = {
       {
         heading: 'Who we are',
         body: [
-          'Basement List ("the Site", "we") is a community-run Geometry Dash demon list operated by ntyu2 and Ksois on behalf of the tnaillzxgd Discord community. The Site is a non-commercial community project available at blist.ksois.com.',
+          'Basement List ("the Site", "we") is a community-run Geometry Dash demon list operated by Ksois with contributions from ntyu2 on behalf of the tnaillzxgd Discord community. The Site is a non-commercial community project available at blist.ksois.com.',
         ],
       },
       {
@@ -105,7 +105,7 @@ export const privacyDocument = {
       {
         heading: 'Кто мы',
         body: [
-          'Basement List («Сайт», «мы») — созданный сообществом список демонов Geometry Dash, который поддерживают ntyu2 и Ksois от имени Discord-сообщества tnaillzxgd. Сайт является некоммерческим проектом сообщества и доступен по адресу blist.ksois.com.',
+          'Basement List («Сайт», «мы») — созданный сообществом список демонов Geometry Dash, который поддерживает Ksois при участии ntyu2 от имени Discord-сообщества tnaillzxgd. Сайт является некоммерческим проектом сообщества и доступен по адресу blist.ksois.com.',
         ],
       },
       {
