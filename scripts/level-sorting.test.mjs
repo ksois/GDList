@@ -13,12 +13,11 @@ test('level sorting keeps input immutable and applies all requested orders', () 
   assert.deepEqual(sortLevels(levels, 'hardest').map(level => level.id), ['hard', 'middle', 'easy'])
   assert.deepEqual(sortLevels(levels, 'easiest').map(level => level.id), ['easy', 'middle', 'hard'])
   assert.deepEqual(sortLevels(levels, 'beaten').map(level => level.id), ['middle', 'easy', 'hard'])
-  assert.deepEqual(sortLevels(levels, 'popular').map(level => level.id), ['middle', 'easy', 'hard'])
   assert.deepEqual(levels.map(level => level.id), ['hard', 'middle', 'easy'])
 })
 
 test('level sort copy is available in English and Russian', () => {
-  for (const key of ['sortBy', 'sortHardest', 'sortEasiest', 'sortBeaten', 'sortPopular']) {
+  for (const key of ['sortBy', 'sortHardest', 'sortEasiest', 'sortBeaten']) {
     assert.ok(TRANSLATIONS.en.list[key])
     assert.ok(TRANSLATIONS.ru.list[key])
   }

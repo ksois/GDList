@@ -57,7 +57,7 @@ const en = {
     mainDescription: 'The official demons completed by Basement players, ranked by difficulty and backed by verified community records.',
     communityTitle: 'Community', communityAccent: 'Demon List', searchLevel: 'Search level or creator…',
     webRank: 'Web', officialRank: 'Official', level: 'Level', difficulty: 'Difficulty', points: 'Points', creator: 'Creator', victories: 'Victories',
-    sortBy: 'Sort levels', sortHardest: 'Hardest first', sortEasiest: 'Easiest to hardest', sortBeaten: 'Most beaten', sortPopular: 'Most popular',
+    sortBy: 'Sort levels', sortHardest: 'Hardest first', sortEasiest: 'Easiest to hardest', sortBeaten: 'Most beaten',
     rank: 'Rank', empty: 'No levels match your search.', mainLoadError: 'The main list could not be loaded. Check your connection and try again.', communityLoadError: 'The community list could not be loaded. Check your connection and try again.',
   },
   leaderboard: {
@@ -139,7 +139,7 @@ const ru = {
     mainDescription: 'Официальные демоны, пройденные игроками Basement, отсортированы по сложности и подтверждены рекордами сообщества.',
     communityTitle: 'Список', communityAccent: 'сообщества', searchLevel: 'Поиск уровня или автора…', webRank: 'Сайт', officialRank: 'Официальный',
     level: 'Уровень', difficulty: 'Сложность', points: 'Очки', creator: 'Автор', victories: 'Победы', rank: 'Место',
-    sortBy: 'Сортировка уровней', sortHardest: 'Сначала самые сложные', sortEasiest: 'От лёгких к сложным', sortBeaten: 'Больше всего прохождений', sortPopular: 'Самые популярные',
+    sortBy: 'Сортировка уровней', sortHardest: 'Сначала самые сложные', sortEasiest: 'От лёгких к сложным', sortBeaten: 'Больше всего прохождений',
     empty: 'Уровни не найдены.', mainLoadError: 'Не удалось загрузить основной список. Проверьте подключение и повторите попытку.', communityLoadError: 'Не удалось загрузить список сообщества. Проверьте подключение и повторите попытку.',
   },
   leaderboard: { mainTitle: 'Основной рейтинг', communityTitle: 'Рейтинг сообщества', mainWord: 'Основной', mainAccent: 'рейтинг', communityWord: 'Рейтинг', communityAccent: 'сообщества', player: 'Игрок', rank: 'Место', points: 'Очки', completions: 'Прохождения', players: 'игроков', searchPlayer: 'Поиск игрока…', tryAgain: 'Повторить', live: 'РЕЙТИНГ В РЕАЛЬНОМ ВРЕМЕНИ', standings: 'Рейтинг игроков', rankedPlayers: 'Игроков в рейтинге', countedClears: 'Учтённых прохождений', currentLeader: 'Текущий лидер', loading: 'Загрузка', unranked: 'Без рейтинга', mainEyebrow: 'ОФИЦИАЛЬНЫЙ РЕЙТИНГ ДЕМОНОВ', communityEyebrow: 'РЕЙТИНГ ИГРОКОВ СООБЩЕСТВА', mainDescription: 'Официальный рейтинг демонов Basement на основе всех подтверждённых прохождений основного списка.', communityDescription: 'Каждое подтверждённое прохождение сообщества учитывается. Узнайте, кто лидирует и кто быстрее всех поднимается.', mainLoadError: 'Не удалось загрузить основной рейтинг.', communityLoadError: 'Не удалось загрузить рейтинг сообщества.' },

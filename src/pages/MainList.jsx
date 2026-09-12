@@ -71,7 +71,6 @@ export default function MainList() {
     { value: 'hardest', label: t('list.sortHardest') },
     { value: 'easiest', label: t('list.sortEasiest') },
     { value: 'beaten', label: t('list.sortBeaten') },
-    { value: 'popular', label: t('list.sortPopular') },
   ]
 
   const diffColor = (diff) => DIFFICULTY_COLORS[diff?.toLowerCase()] || '#ffffff'
