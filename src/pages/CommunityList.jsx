@@ -8,6 +8,7 @@ import Card from '../components/ui/Card'
 import SearchBar from '../components/ui/SearchBar'
 import Spinner from '../components/ui/Spinner'
 import Button from '../components/ui/Button'
+import Select from '../components/ui/Select'
 import { useAuth } from '../hooks/useAuth'
 import { useLanguage } from '../hooks/useLanguage'
 import { loadCommunityLevels, loadTags, invalidateCache } from '../services/readCache'
@@ -15,6 +16,7 @@ import { deleteCommunityLevel } from '../services/communityList'
 import { hasAccess } from '../utils/constants'
 import { formatNumber } from '../utils/format'
 import { getVideoThumbnail } from '../utils/video'
+import { sortLevels } from '../utils/levelSorting'
 import styles from './List.module.css'
 import theme from '../components/layout/ThemedPage.module.css'
 
@@ -34,6 +36,7 @@ export default function CommunityList() {
   const [loading, setLoading] = useState(true)
   const [loadError, setLoadError] = useState('')
   const [tab, setTab] = useState('active')
+  const [sort, setSort] = useState('hardest')
 
   useEffect(() => {
     loadTags()
@@ -90,9 +93,19 @@ export default function CommunityList() {
 
   const filteredByTags = useMemo(() => active.filter(matchesTags), [active, selectedTags])
 
-  const activeFiltered = filteredByTags.filter(matchesSearch)
+  const activeFiltered = useMemo(
+    () => sortLevels(filteredByTags.filter(matchesSearch), sort),
+    [filteredByTags, search, sort],
+  )
   const unverifiedFiltered = unverified.filter(matchesTags).filter(matchesSearch)
   const visible = tab === 'active' ? activeFiltered : unverifiedFiltered
+
+  const sortOptions = [
+    { value: 'hardest', label: t('list.sortHardest') },
+    { value: 'easiest', label: t('list.sortEasiest') },
+    { value: 'beaten', label: t('list.sortBeaten') },
+    { value: 'popular', label: t('list.sortPopular') },
+  ]
 
   const toggleTag = (id) => {
     setSelectedTags(prev => prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id])
@@ -149,6 +162,16 @@ export default function CommunityList() {
           placeholder={t('list.searchLevel')}
           className={styles.searchBar}
         />
+        {tab === 'active' && (
+          <Select
+            label={t('list.sortBy')}
+            options={sortOptions}
+            value={sort}
+            onChange={event => setSort(event.target.value)}
+            className={styles.sortSelect}
+            aria-label={t('list.sortBy')}
+          />
+        )}
       </div>
 
       {tags.length > 0 && (

@@ -18,6 +18,15 @@
   max-width: 320px;
 }
 
+.sortSelect {
+  flex: 0 1 210px;
+  min-width: 180px;
+}
+
+.sortSelect label {
+  white-space: nowrap;
+}
+
 @media (max-width: 560px) {
   .toolbar {
     flex-direction: column;
@@ -26,6 +35,11 @@
 
   .searchBar {
     max-width: none;
+  }
+
+  .sortSelect {
+    width: 100%;
+    min-width: 0;
   }
 }
 
